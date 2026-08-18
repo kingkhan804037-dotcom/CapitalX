@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CapitalX</title>
+<title>CapitalX - Indian Markets</title>
 
 <style>
 *{
@@ -15,17 +15,17 @@
 }
 
 html,body{
-    width:100%;
     min-height:100%;
 }
 
 body{
-    background:#061a2b;
-    color:white;
+    background:#041522;
+    color:#fff;
     overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* INTERACTIVE BACKGROUND */
+
 #interactive-bg{
     position:fixed;
     inset:0;
@@ -35,7 +35,8 @@ body{
     pointer-events:none;
 }
 
-/* MAIN WEBSITE */
+/* APP */
+
 .app{
     position:relative;
     z-index:1;
@@ -43,67 +44,98 @@ body{
 }
 
 /* HEADER */
+
 .header{
     height:70px;
     padding:0 5%;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    background:rgba(4,18,32,.88);
-    border-bottom:1px solid rgba(245,185,66,.35);
-    backdrop-filter:blur(10px);
+
+    background:rgba(3,17,29,.92);
+
+    border-bottom:1px solid rgba(245,185,66,.30);
+
+    backdrop-filter:blur(12px);
 }
 
 .logo{
     color:#f5b942;
-    font-size:24px;
-    font-weight:bold;
+    font-size:25px;
+    font-weight:800;
+    letter-spacing:.5px;
 }
 
-.account-name{
-    color:#c9d7e5;
-    font-size:14px;
+.market-status{
+    color:#38e38a;
+    font-size:13px;
+}
+
+.market-status span{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    background:#38e38a;
+    border-radius:50%;
+    margin-right:6px;
 }
 
 /* NAVIGATION */
+
 .nav{
     display:flex;
     justify-content:center;
     gap:8px;
-    padding:14px 5%;
-    background:rgba(5,24,42,.9);
+
+    padding:13px 5%;
+
+    background:rgba(4,23,39,.94);
+
     border-bottom:1px solid rgba(255,255,255,.08);
+
     position:sticky;
     top:0;
+
     z-index:10;
+
+    overflow-x:auto;
 }
 
 .nav button{
     border:none;
     background:transparent;
-    color:#aebfd0;
+
+    color:#9fb0c0;
+
     padding:11px 20px;
+
     border-radius:10px;
+
     cursor:pointer;
+
     font-size:14px;
+
+    white-space:nowrap;
+
     transition:.2s;
 }
 
 .nav button:hover{
-    background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,.07);
     color:white;
 }
 
 .nav button.active{
     background:#f5b942;
-    color:#061a2b;
+    color:#061827;
     font-weight:bold;
 }
 
-/* CONTENT */
+/* CONTAINER */
+
 .container{
     width:90%;
-    max-width:1200px;
+    max-width:1250px;
     margin:35px auto;
 }
 
@@ -115,147 +147,260 @@ body{
     display:block;
 }
 
-/* HEADINGS */
 .page-title{
     font-size:30px;
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
 .subtitle{
-    color:#9db0c2;
-    margin-bottom:28px;
+    color:#91a5b8;
+    margin-bottom:25px;
+}
+
+/* MARKET INDICES */
+
+.indices{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+
+    margin-bottom:30px;
+}
+
+.index-card{
+    background:rgba(8,42,65,.86);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    border-radius:15px;
+
+    padding:19px;
+
+    transition:.2s;
+}
+
+.index-card:hover{
+    transform:translateY(-3px);
+    border-color:#f5b942;
+}
+
+.index-name{
+    color:#a9bac9;
+    font-size:13px;
+}
+
+.index-value{
+    font-size:23px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.positive{
+    color:#35df88;
+}
+
+.negative{
+    color:#ff5c69;
+}
+
+.change{
+    font-size:13px;
+    margin-top:6px;
 }
 
 /* BALANCE */
+
 .balance{
-    background:linear-gradient(135deg,#0b6da8,#1594d0);
-    border:1px solid rgba(255,255,255,.35);
+    background:
+    linear-gradient(
+        135deg,
+        rgba(8,80,120,.92),
+        rgba(8,39,61,.92)
+    );
+
+    border:1px solid rgba(245,185,66,.30);
+
     border-radius:18px;
+
     padding:25px;
+
     margin-bottom:25px;
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
 .balance-label{
-    color:#d8efff;
-    font-size:14px;
+    color:#a9bdcd;
+    font-size:13px;
 }
 
 .balance-value{
-    color:#ffe083;
+    color:#f5c85d;
     font-size:34px;
     font-weight:bold;
     margin-top:8px;
 }
 
-/* ACTIONS */
+.balance-note{
+    color:#8fa5b8;
+    font-size:12px;
+    margin-top:7px;
+}
+
+/* QUICK ACTIONS */
+
 .actions{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:15px;
-    margin-bottom:35px;
+
+    margin-bottom:32px;
 }
 
-.action-btn{
-    border:none;
-    border-radius:14px;
-    padding:20px;
-    background:rgba(25,137,198,.65);
+.action{
+    border:1px solid rgba(255,255,255,.12);
+
+    background:rgba(12,52,78,.84);
+
     color:white;
+
+    border-radius:13px;
+
+    padding:19px;
+
     cursor:pointer;
-    border:1px solid rgba(255,255,255,.15);
+
     transition:.2s;
 }
 
-.action-btn:hover{
+.action:hover{
     transform:translateY(-3px);
-    background:#168ac7;
-}
-
-.action-btn strong{
-    display:block;
-    color:#ffe083;
-    font-size:18px;
-    margin-bottom:5px;
-}
-
-/* MARKET */
-.section-title{
-    font-size:20px;
-    margin-bottom:15px;
-}
-
-.markets{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.market{
-    background:rgba(19,70,103,.75);
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:16px;
-    padding:20px;
-    transition:.2s;
-}
-
-.market:hover{
-    transform:translateY(-4px);
     border-color:#f5b942;
 }
 
-.market-name{
-    font-size:18px;
+.action strong{
+    display:block;
+
+    color:#f5b942;
+
+    font-size:17px;
+
+    margin-bottom:5px;
+}
+
+/* SECTION */
+
+.section-title{
+    font-size:21px;
+    margin-bottom:15px;
+}
+
+/* STOCK GRID */
+
+.stocks{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:16px;
+}
+
+.stock{
+    background:rgba(8,39,61,.88);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    border-radius:15px;
+
+    padding:19px;
+
+    transition:.2s;
+}
+
+.stock:hover{
+    transform:translateY(-3px);
+
+    border-color:#f5b942;
+}
+
+.stock-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+}
+
+.stock-name{
+    font-size:17px;
     font-weight:bold;
 }
 
-.market-symbol{
-    color:#9eb4c7;
+.stock-symbol{
+    color:#8fa4b6;
+
     font-size:12px;
-    margin:5px 0 15px;
+
+    margin-top:4px;
 }
 
-.price{
+.stock-price{
     font-size:22px;
-    font-weight:bold;
-}
 
-.change{
-    color:#21e58b;
-    font-size:13px;
-    margin-top:6px;
+    font-weight:bold;
+
+    margin-top:17px;
 }
 
 .watch-btn{
-    margin-top:15px;
     width:100%;
+
+    margin-top:15px;
+
     padding:9px;
+
     border:none;
+
     border-radius:8px;
-    cursor:pointer;
+
     background:#f5b942;
-    color:#061a2b;
+
+    color:#061827;
+
     font-weight:bold;
+
+    cursor:pointer;
 }
 
 /* CARDS */
+
 .card{
-    background:rgba(10,39,61,.85);
-    border:1px solid rgba(255,255,255,.12);
+    background:rgba(8,39,61,.90);
+
+    border:1px solid rgba(255,255,255,.10);
+
     border-radius:16px;
+
     padding:22px;
+
     margin-bottom:18px;
 }
 
 .card h3{
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 .muted{
-    color:#9db0c2;
+    color:#91a5b8;
 }
 
 /* TABLE */
+
 .table-wrap{
     overflow-x:auto;
 }
@@ -266,9 +411,13 @@ table{
 }
 
 th,td{
+    padding:14px;
+
     text-align:left;
-    padding:15px;
-    border-bottom:1px solid rgba(255,255,255,.08);
+
+    border-bottom:
+    1px solid
+    rgba(255,255,255,.08);
 }
 
 th{
@@ -276,47 +425,61 @@ th{
 }
 
 /* ACCOUNT */
+
 .account-row{
     display:flex;
+
     justify-content:space-between;
+
     padding:16px 0;
-    border-bottom:1px solid rgba(255,255,255,.08);
+
+    border-bottom:
+    1px solid
+    rgba(255,255,255,.08);
 }
 
 .account-row span:first-child{
-    color:#9db0c2;
+    color:#91a5b8;
 }
 
-/* RESPONSIVE */
-@media(max-width:800px){
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .indices{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .stocks{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
 
     .header{
-        padding:0 20px;
-    }
-
-    .nav{
-        overflow-x:auto;
-        justify-content:flex-start;
-    }
-
-    .nav button{
-        white-space:nowrap;
+        padding:0 18px;
     }
 
     .container{
         width:94%;
+        margin:25px auto;
     }
 
-    .markets{
-        grid-template-columns:1fr;
-    }
-
+    .indices,
+    .stocks,
     .actions{
         grid-template-columns:1fr;
     }
 
     .page-title{
         font-size:25px;
+    }
+
+    .balance-value{
+        font-size:29px;
     }
 }
 </style>
@@ -328,329 +491,676 @@ th{
 
 <div class="app">
 
-    <!-- HEADER -->
-    <header class="header">
+<!-- HEADER -->
 
-        <div class="logo">
-            CAPITALX
-        </div>
+<header class="header">
 
-        <div class="account-name">
-            Demo Account
-        </div>
+    <div class="logo">
+        CAPITALX
+    </div>
 
-    </header>
+    <div class="market-status">
+        <span></span>
+        Indian Market
+    </div>
 
+</header>
 
-    <!-- NAVIGATION -->
-    <nav class="nav">
 
-        <button class="nav-btn active" onclick="showPage('home',this)">
-            🏠 Home
-        </button>
+<!-- NAVIGATION -->
 
-        <button class="nav-btn" onclick="showPage('watchlist',this)">
-            ⭐ Watchlist
-        </button>
+<nav class="nav">
 
-        <button class="nav-btn" onclick="showPage('portfolio',this)">
-            💼 Portfolio
-        </button>
+    <button
+        class="nav-btn active"
+        onclick="showPage('home',this)">
+        🏠 Home
+    </button>
 
-        <button class="nav-btn" onclick="showPage('orders',this)">
-            📋 Orders
-        </button>
+    <button
+        class="nav-btn"
+        onclick="showPage('watchlist',this)">
+        ⭐ Watchlist
+    </button>
 
-        <button class="nav-btn" onclick="showPage('account',this)">
-            👤 Account
-        </button>
+    <button
+        class="nav-btn"
+        onclick="showPage('portfolio',this)">
+        💼 Portfolio
+    </button>
 
-    </nav>
+    <button
+        class="nav-btn"
+        onclick="showPage('orders',this)">
+        📋 Orders
+    </button>
 
+    <button
+        class="nav-btn"
+        onclick="showPage('account',this)">
+        👤 Account
+    </button>
 
-    <main class="container">
+</nav>
 
 
-        <!-- HOME -->
-        <section id="home" class="page active">
+<main class="container">
 
-            <h1 class="page-title">
-                Welcome to CapitalX
-            </h1>
 
-            <p class="subtitle">
-                Your trading dashboard
-            </p>
+<!-- HOME -->
 
+<section
+    id="home"
+    class="page active">
 
-            <div class="balance">
+<h1 class="page-title">
+    Indian Markets
+</h1>
 
-                <div class="balance-label">
-                    Available Balance
-                </div>
+<p class="subtitle">
+    Track NSE markets and your investments
+</p>
 
-                <div class="balance-value" id="balance">
-                    $10,000.00
-                </div>
 
-            </div>
+<!-- INDICES -->
 
+<div class="indices">
 
-            <div class="actions">
+<div class="index-card">
 
-                <button class="action-btn" onclick="demoAction('Buy')">
-                    <strong>BUY</strong>
-                    Buy Assets
-                </button>
+<div class="index-name">
+NIFTY 50
+</div>
 
-                <button class="action-btn" onclick="demoAction('Sell')">
-                    <strong>SELL</strong>
-                    Sell Assets
-                </button>
+<div class="index-value">
+22,450.20
+</div>
 
-                <button class="action-btn" onclick="deposit()">
-                    <strong>DEPOSIT</strong>
-                    Add Funds
-                </button>
+<div class="change positive">
+▲ 0.82%
+</div>
 
-            </div>
+</div>
 
 
-            <h2 class="section-title">
-                Markets
-            </h2>
+<div class="index-card">
 
-            <section class="markets">
+<div class="index-name">
+BANK NIFTY
+</div>
 
-                <div class="market">
+<div class="index-value">
+48,120.65
+</div>
 
-                    <div class="market-name">
-                        Bitcoin
-                    </div>
+<div class="change positive">
+▲ 0.64%
+</div>
 
-                    <div class="market-symbol">
-                        BTC / USD
-                    </div>
+</div>
 
-                    <div class="price">
-                        $67,420.50
-                    </div>
 
-                    <div class="change">
-                        +2.34%
-                    </div>
+<div class="index-card">
 
-                    <button class="watch-btn"
-                        onclick="addWatch('Bitcoin')">
-                        + Watchlist
-                    </button>
+<div class="index-name">
+NIFTY IT
+</div>
 
-                </div>
+<div class="index-value">
+35,840.30
+</div>
 
+<div class="change negative">
+▼ 0.28%
+</div>
 
-                <div class="market">
+</div>
 
-                    <div class="market-name">
-                        Ethereum
-                    </div>
 
-                    <div class="market-symbol">
-                        ETH / USD
-                    </div>
+<div class="index-card">
 
-                    <div class="price">
-                        $3,520.80
-                    </div>
+<div class="index-name">
+NIFTY FIN SERVICE
+</div>
 
-                    <div class="change">
-                        +1.82%
-                    </div>
+<div class="index-value">
+23,210.45
+</div>
 
-                    <button class="watch-btn"
-                        onclick="addWatch('Ethereum')">
-                        + Watchlist
-                    </button>
+<div class="change positive">
+▲ 0.51%
+</div>
 
-                </div>
+</div>
 
+</div>
 
-                <div class="market">
 
-                    <div class="market-name">
-                        CapitalX Token
-                    </div>
+<!-- BALANCE -->
 
-                    <div class="market-symbol">
-                        CXL / USD
-                    </div>
+<div class="balance">
 
-                    <div class="price">
-                        $12.45
-                    </div>
+<div class="balance-label">
+Available Trading Balance
+</div>
 
-                    <div class="change">
-                        +4.12%
-                    </div>
+<div
+    class="balance-value"
+    id="balance">
+₹10,00,000.00
+</div>
 
-                    <button class="watch-btn"
-                        onclick="addWatch('CapitalX Token')">
-                        + Watchlist
-                    </button>
+<div class="balance-note">
+Demo trading account
+</div>
 
-                </div>
+</div>
 
-            </section>
 
-        </section>
+<!-- ACTIONS -->
 
+<div class="actions">
 
-        <!-- WATCHLIST -->
-        <section id="watchlist" class="page">
+<button
+    class="action"
+    onclick="demoTrade('BUY')">
 
-            <h1 class="page-title">
-                Watchlist
-            </h1>
+<strong>
+BUY
+</strong>
 
-            <p class="subtitle">
-                Assets you're keeping an eye on
-            </p>
+Buy Stocks
 
-            <div class="card">
+</button>
 
-                <h3>⭐ Your Watchlist</h3>
 
-                <div id="watchlist-items">
+<button
+    class="action"
+    onclick="demoTrade('SELL')">
 
-                    <p class="muted">
-                        Your watchlist is empty.
-                    </p>
+<strong>
+SELL
+</strong>
 
-                </div>
+Sell Stocks
 
-            </div>
+</button>
 
-        </section>
 
+<button
+    class="action"
+    onclick="deposit()">
 
-        <!-- PORTFOLIO -->
-        <section id="portfolio" class="page">
+<strong>
+ADD FUNDS
+</strong>
 
-            <h1 class="page-title">
-                Portfolio
-            </h1>
+Deposit Funds
 
-            <p class="subtitle">
-                Your current holdings
-            </p>
+</button>
 
-            <div class="card">
+</div>
 
-                <h3>Total Portfolio Value</h3>
 
-                <div class="balance-value">
-                    $10,000.00
-                </div>
+<!-- POPULAR STOCKS -->
 
-            </div>
+<h2 class="section-title">
+Popular Indian Stocks
+</h2>
 
 
-            <div class="card">
+<div class="stocks">
 
-                <h3>Holdings</h3>
 
-                <p class="muted">
-                    No assets purchased yet.
-                </p>
+<div class="stock">
 
-            </div>
+<div class="stock-top">
 
-        </section>
+<div>
 
+<div class="stock-name">
+Reliance Industries
+</div>
 
-        <!-- ORDERS -->
-        <section id="orders" class="page">
+<div class="stock-symbol">
+NSE: RELIANCE
+</div>
 
-            <h1 class="page-title">
-                Orders
-            </h1>
+</div>
 
-            <p class="subtitle">
-                Your trading activity
-            </p>
+<div class="positive">
++1.24%
+</div>
 
+</div>
 
-            <div class="card table-wrap">
+<div class="stock-price">
+₹2,845.60
+</div>
 
-                <table>
+<button
+    class="watch-btn"
+    onclick="addWatch('Reliance Industries')">
 
-                    <thead>
++ Watchlist
 
-                        <tr>
-                            <th>Asset</th>
-                            <th>Type</th>
-                            <th>Amount</th>
-                            <th>Status</th>
-                        </tr>
+</button>
 
-                    </thead>
+</div>
 
-                    <tbody id="orders-list">
 
-                        <tr>
-                            <td colspan="4" class="muted">
-                                No orders yet.
-                            </td>
-                        </tr>
 
-                    </tbody>
+<div class="stock">
 
-                </table>
+<div class="stock-top">
 
-            </div>
+<div>
 
-        </section>
+<div class="stock-name">
+HDFC Bank
+</div>
 
+<div class="stock-symbol">
+NSE: HDFCBANK
+</div>
 
-        <!-- ACCOUNT -->
-        <section id="account" class="page">
+</div>
 
-            <h1 class="page-title">
-                Account
-            </h1>
+<div class="positive">
++0.87%
+</div>
 
-            <p class="subtitle">
-                Your CapitalX account details
-            </p>
+</div>
 
+<div class="stock-price">
+₹1,742.30
+</div>
 
-            <div class="card">
+<button
+    class="watch-btn"
+    onclick="addWatch('HDFC Bank')">
 
-                <div class="account-row">
-                    <span>Account Type</span>
-                    <span>Demo Account</span>
-                </div>
++ Watchlist
 
-                <div class="account-row">
-                    <span>Username</span>
-                    <span>CapitalX User</span>
-                </div>
+</button>
 
-                <div class="account-row">
-                    <span>Account Status</span>
-                    <span>Active</span>
-                </div>
+</div>
 
-                <div class="account-row">
-                    <span>Currency</span>
-                    <span>USD</span>
-                </div>
 
-            </div>
 
-        </section>
+<div class="stock">
 
+<div class="stock-top">
 
-    </main>
+<div>
+
+<div class="stock-name">
+ICICI Bank
+</div>
+
+<div class="stock-symbol">
+NSE: ICICIBANK
+</div>
+
+</div>
+
+<div class="positive">
++1.02%
+</div>
+
+</div>
+
+<div class="stock-price">
+₹1,248.70
+</div>
+
+<button
+    class="watch-btn"
+    onclick="addWatch('ICICI Bank')">
+
++ Watchlist
+
+</button>
+
+</div>
+
+
+
+<div class="stock">
+
+<div class="stock-top">
+
+<div>
+
+<div class="stock-name">
+Tata Consultancy Services
+</div>
+
+<div class="stock-symbol">
+NSE: TCS
+</div>
+
+</div>
+
+<div class="negative">
+-0.42%
+</div>
+
+</div>
+
+<div class="stock-price">
+₹3,684.25
+</div>
+
+<button
+    class="watch-btn"
+    onclick="addWatch('TCS')">
+
++ Watchlist
+
+</button>
+
+</div>
+
+
+
+<div class="stock">
+
+<div class="stock-top">
+
+<div>
+
+<div class="stock-name">
+Infosys
+</div>
+
+<div class="stock-symbol">
+NSE: INFY
+</div>
+
+</div>
+
+<div class="positive">
++0.76%
+</div>
+
+</div>
+
+<div class="stock-price">
+₹1,685.40
+</div>
+
+<button
+    class="watch-btn"
+    onclick="addWatch('Infosys')">
+
++ Watchlist
+
+</button>
+
+</div>
+
+
+
+<div class="stock">
+
+<div class="stock-top">
+
+<div>
+
+<div class="stock-name">
+State Bank of India
+</div>
+
+<div class="stock-symbol">
+NSE: SBIN
+</div>
+
+</div>
+
+<div class="positive">
++1.48%
+</div>
+
+</div>
+
+<div class="stock-price">
+₹824.55
+</div>
+
+<button
+    class="watch-btn"
+    onclick="addWatch('SBI')">
+
++ Watchlist
+
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- WATCHLIST -->
+
+<section
+    id="watchlist"
+    class="page">
+
+<h1 class="page-title">
+Watchlist
+</h1>
+
+<p class="subtitle">
+Your selected Indian stocks
+</p>
+
+<div class="card">
+
+<h3>
+⭐ My Watchlist
+</h3>
+
+<div id="watchlist-items">
+
+<p class="muted">
+Your watchlist is empty.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PORTFOLIO -->
+
+<section
+    id="portfolio"
+    class="page">
+
+<h1 class="page-title">
+Portfolio
+</h1>
+
+<p class="subtitle">
+Your Indian stock holdings
+</p>
+
+
+<div class="card">
+
+<h3>
+Portfolio Value
+</h3>
+
+<div class="balance-value">
+₹10,00,000.00
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Holdings
+</h3>
+
+<p class="muted">
+No stocks purchased yet.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ORDERS -->
+
+<section
+    id="orders"
+    class="page">
+
+<h1 class="page-title">
+Orders
+</h1>
+
+<p class="subtitle">
+Your buy and sell orders
+</p>
+
+
+<div class="card table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Stock
+</th>
+
+<th>
+Type
+</th>
+
+<th>
+Quantity
+</th>
+
+<th>
+Status
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="orders-list">
+
+<tr>
+
+<td
+    colspan="4"
+    class="muted">
+
+No orders yet.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- ACCOUNT -->
+
+<section
+    id="account"
+    class="page">
+
+<h1 class="page-title">
+Account
+</h1>
+
+<p class="subtitle">
+Manage your CapitalX account
+</p>
+
+
+<div class="card">
+
+<div class="account-row">
+
+<span>
+Account Type
+</span>
+
+<span>
+Demo Account
+</span>
+
+</div>
+
+
+<div class="account-row">
+
+<span>
+Market
+</span>
+
+<span>
+India - NSE/BSE
+</span>
+
+</div>
+
+
+<div class="account-row">
+
+<span>
+Currency
+</span>
+
+<span>
+INR ₹
+</span>
+
+</div>
+
+
+<div class="account-row">
+
+<span>
+Account Status
+</span>
+
+<span class="positive">
+Active
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
 
 </div>
 
@@ -659,39 +1169,48 @@ th{
 
 /* PAGE NAVIGATION */
 
-function showPage(pageId, button){
+function showPage(pageId,button){
 
-    const pages = document.querySelectorAll('.page');
+const pages =
+document.querySelectorAll(".page");
 
-    pages.forEach(function(page){
-        page.classList.remove('active');
-    });
+pages.forEach(function(page){
 
-    document.getElementById(pageId).classList.add('active');
+page.classList.remove("active");
 
-    const buttons = document.querySelectorAll('.nav-btn');
+});
 
-    buttons.forEach(function(btn){
-        btn.classList.remove('active');
-    });
 
-    button.classList.add('active');
+document
+.getElementById(pageId)
+.classList.add("active");
 
-    window.scrollTo({
-        top:0,
-        behavior:'smooth'
-    });
+
+const buttons =
+document.querySelectorAll(".nav-btn");
+
+buttons.forEach(function(btn){
+
+btn.classList.remove("active");
+
+});
+
+
+button.classList.add("active");
+
+window.scrollTo(0,0);
+
 }
 
 
 /* DEMO BUY / SELL */
 
-function demoAction(type){
+function demoTrade(type){
 
-    alert(
-        type +
-        " feature is ready for the next step."
-    );
+alert(
+type +
+" trading panel will be added next."
+);
 
 }
 
@@ -700,35 +1219,44 @@ function demoAction(type){
 
 function deposit(){
 
-    let amount = prompt(
-        "Enter demo deposit amount:"
-    );
+let amount =
+prompt(
+"Enter demo deposit amount in ₹:"
+);
 
-    if(amount && !isNaN(amount)){
+if(
+amount &&
+!isNaN(amount)
+){
 
-        let balance =
-            document.getElementById("balance");
+let balance =
+document.getElementById(
+"balance"
+);
 
-        let current =
-            parseFloat(
-                balance.innerText
-                .replace("$","")
-                .replace(",","")
-            );
+let current =
+parseFloat(
+balance.innerText
+.replace("₹","")
+.replace(/,/g,"")
+);
 
-        let newBalance =
-            current + parseFloat(amount);
+let newBalance =
+current +
+parseFloat(amount);
 
-        balance.innerText =
-            "$" +
-            newBalance.toLocaleString(
-                "en-US",
-                {
-                    minimumFractionDigits:2,
-                    maximumFractionDigits:2
-                }
-            );
-    }
+balance.innerText =
+"₹" +
+newBalance.toLocaleString(
+"en-IN",
+{
+minimumFractionDigits:2,
+maximumFractionDigits:2
+}
+);
+
+}
+
 }
 
 
@@ -736,91 +1264,108 @@ function deposit(){
 
 function addWatch(asset){
 
-    const container =
-        document.getElementById(
-            "watchlist-items"
-        );
+const container =
+document.getElementById(
+"watchlist-items"
+);
 
-    if(
-        container.innerText.includes(
-            "Your watchlist is empty"
-        )
-    ){
-        container.innerHTML = "";
-    }
+if(
+container.innerText.includes(
+"Your watchlist is empty"
+)
+){
 
-    const item =
-        document.createElement("div");
+container.innerHTML="";
 
-    item.className = "account-row";
+}
 
-    item.innerHTML =
-        "<span>⭐ " +
-        asset +
-        "</span>" +
-        "<span>Watching</span>";
 
-    container.appendChild(item);
+const item =
+document.createElement("div");
 
-    alert(
-        asset +
-        " added to Watchlist."
-    );
+item.className =
+"account-row";
+
+item.innerHTML =
+"<span>⭐ " +
+asset +
+"</span>" +
+"<span class='positive'>Watching</span>";
+
+container.appendChild(item);
+
+
+alert(
+asset +
+" added to Watchlist."
+);
+
 }
 
 
 /* INTERACTIVE BACKGROUND */
 
 const canvas =
-    document.getElementById(
-        "interactive-bg"
-    );
+document.getElementById(
+"interactive-bg"
+);
 
 const ctx =
-    canvas.getContext("2d");
+canvas.getContext("2d");
 
-let points = [];
+let points=[];
 
-let mouse = {
-    x:null,
-    y:null
+let mouse={
+x:null,
+y:null
 };
 
 
 function resizeCanvas(){
 
-    canvas.width =
-        window.innerWidth;
+canvas.width =
+window.innerWidth;
 
-    canvas.height =
-        window.innerHeight;
+canvas.height =
+window.innerHeight;
 
-    points = [];
+points=[];
 
-    const amount =
-        Math.floor(
-            (canvas.width *
-             canvas.height) /
-            18000
-        );
 
-    for(let i=0;i<amount;i++){
+const amount =
+Math.floor(
+(canvas.width *
+canvas.height) /
+18000
+);
 
-        points.push({
 
-            x:Math.random() *
-              canvas.width,
+for(
+let i=0;
+i<amount;
+i++
+){
 
-            y:Math.random() *
-              canvas.height,
+points.push({
 
-            vx:(Math.random()-.5)*.25,
+x:
+Math.random() *
+canvas.width,
 
-            vy:(Math.random()-.5)*.25
+y:
+Math.random() *
+canvas.height,
 
-        });
+vx:
+(Math.random()-.5)*.25,
 
-    }
+vy:
+(Math.random()-.5)*.25
+
+});
+
+}
+
 }
 
 
@@ -828,177 +1373,192 @@ resizeCanvas();
 
 
 window.addEventListener(
-    "resize",
-    resizeCanvas
+"resize",
+resizeCanvas
 );
 
 
 window.addEventListener(
-    "mousemove",
-    function(e){
+"mousemove",
+function(e){
 
-        mouse.x =
-            e.clientX;
+mouse.x=e.clientX;
+mouse.y=e.clientY;
 
-        mouse.y =
-            e.clientY;
-
-    }
+}
 );
 
 
 window.addEventListener(
-    "touchmove",
-    function(e){
+"touchmove",
+function(e){
 
-        if(e.touches.length > 0){
+if(
+e.touches.length
+){
 
-            mouse.x =
-                e.touches[0].clientX;
+mouse.x =
+e.touches[0].clientX;
 
-            mouse.y =
-                e.touches[0].clientY;
+mouse.y =
+e.touches[0].clientY;
 
-        }
+}
 
-    },
-    {passive:true}
-);
-
-
-window.addEventListener(
-    "mouseleave",
-    function(){
-
-        mouse.x = null;
-        mouse.y = null;
-
-    }
+},
+{
+passive:true
+}
 );
 
 
 function animate(){
 
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
 
 
-    for(let p of points){
+for(
+let p of points
+){
 
-        p.x += p.vx;
-        p.y += p.vy;
-
-
-        if(p.x < 0 || p.x > canvas.width){
-            p.vx *= -1;
-        }
-
-        if(p.y < 0 || p.y > canvas.height){
-            p.vy *= -1;
-        }
+p.x += p.vx;
+p.y += p.vy;
 
 
-        if(mouse.x !== null){
+if(
+p.x<0 ||
+p.x>canvas.width
+){
 
-            const dx =
-                p.x - mouse.x;
+p.vx *= -1;
 
-            const dy =
-                p.y - mouse.y;
-
-            const distance =
-                Math.sqrt(
-                    dx*dx + dy*dy
-                );
+}
 
 
-            if(distance < 150){
+if(
+p.y<0 ||
+p.y>canvas.height
+){
 
-                p.x += dx * 0.006;
-                p.y += dy * 0.006;
+p.vy *= -1;
 
-            }
-
-        }
-
-
-        ctx.beginPath();
-
-        ctx.arc(
-            p.x,
-            p.y,
-            2,
-            0,
-            Math.PI*2
-        );
-
-        ctx.fillStyle =
-            "rgba(0,180,255,.55)";
-
-        ctx.fill();
-
-    }
+}
 
 
-    for(
-        let i=0;
-        i<points.length;
-        i++
-    ){
+if(
+mouse.x !== null
+){
 
-        for(
-            let j=i+1;
-            j<points.length;
-            j++
-        ){
+const dx =
+p.x-mouse.x;
 
-            const dx =
-                points[i].x -
-                points[j].x;
+const dy =
+p.y-mouse.y;
 
-            const dy =
-                points[i].y -
-                points[j].y;
-
-            const distance =
-                Math.sqrt(
-                    dx*dx + dy*dy
-                );
+const distance =
+Math.sqrt(
+dx*dx+dy*dy
+);
 
 
-            if(distance < 130){
+if(
+distance<150
+){
 
-                ctx.beginPath();
+p.x +=
+dx*.006;
 
-                ctx.moveTo(
-                    points[i].x,
-                    points[i].y
-                );
+p.y +=
+dy*.006;
 
-                ctx.lineTo(
-                    points[j].x,
-                    points[j].y
-                );
+}
 
-                ctx.strokeStyle =
-                    "rgba(0,150,255,.16)";
-
-                ctx.stroke();
-
-            }
-
-        }
-
-    }
+}
 
 
-    requestAnimationFrame(
-        animate
-    );
+ctx.beginPath();
+
+ctx.arc(
+p.x,
+p.y,
+2,
+0,
+Math.PI*2
+);
+
+ctx.fillStyle =
+"rgba(0,180,255,.55)";
+
+ctx.fill();
+
+}
+
+
+/* CONNECTING LINES */
+
+for(
+let i=0;
+i<points.length;
+i++
+){
+
+for(
+let j=i+1;
+j<points.length;
+j++
+){
+
+const dx =
+points[i].x -
+points[j].x;
+
+const dy =
+points[i].y -
+points[j].y;
+
+const distance =
+Math.sqrt(
+dx*dx+dy*dy
+);
+
+
+if(
+distance<130
+){
+
+ctx.beginPath();
+
+ctx.moveTo(
+points[i].x,
+points[i].y
+);
+
+ctx.lineTo(
+points[j].x,
+points[j].y
+);
+
+ctx.strokeStyle =
+"rgba(0,150,255,.16)";
+
+ctx.stroke();
+
+}
+
+}
+
+}
+
+
+requestAnimationFrame(
+animate
+);
+
 }
 
 
