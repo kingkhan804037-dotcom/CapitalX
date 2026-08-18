@@ -91,6 +91,65 @@
       text-decoration: none;
       font-weight: bold;
     }
+  .success-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 10, 25, 0.78);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.success-popup {
+    width: 360px;
+    max-width: 85%;
+    padding: 32px 25px;
+    text-align: center;
+    background: linear-gradient(145deg, #071b35, #0b2948);
+    border: 1px solid #f5b942;
+    border-radius: 18px;
+    box-shadow: 0 0 35px rgba(245, 185, 66, 0.35);
+}
+
+.success-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #f5b942;
+    color: #071b35;
+    font-size: 38px;
+    font-weight: bold;
+    line-height: 58px;
+}
+
+.success-popup h2 {
+    margin: 8px 0;
+    color: #f5b942;
+    font-size: 25px;
+}
+
+.success-popup p {
+    color: #d7e2ed;
+    font-size: 14px;
+    margin: 12px 0 24px;
+}
+
+.success-popup button {
+    border: none;
+    border-radius: 8px;
+    padding: 13px 28px;
+    background: #f5b942;
+    color: #071b35;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.success-popup button:hover {
+    background: #ffd76a;
+}
   </style>
 </head>
 
@@ -101,7 +160,7 @@
     <h1>CapitalX</h1>
     <p class="subtitle">Create Your Account</p>
 
-    <form id="registerForm" onsubmit="event.preventDefault(); alert('Account created successfully!');">
+    <form id="registerForm">
 
       <label>Full Name</label>
       <input type="text" placeholder="Enter your full name" required>
@@ -122,11 +181,28 @@
 
     </form>
     
-    <script>
+    <div id="successPopup" class="success-overlay">
+  <div class="success-popup">
+    <div class="success-icon">✓</div>
+
+    <h2>Account Created</h2>
+
+    <p>Your CapitalX account has been created successfully.</p>
+
+    <button onclick="goToLogin()">Continue to Login</button>
+  </div>
+</div>
+
+<script>
 document.getElementById("registerForm").addEventListener("submit", function(event) {
     event.preventDefault();
-    alert("Account created successfully!");
+
+    document.getElementById("successPopup").style.display = "flex";
 });
+
+function goToLogin() {
+    window.location.href = "login.html";
+}
 </script>
 
     <p class="login-text">
