@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CapitalX - Create Account</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: url("blue-bg.jpeg") center/cover fixed no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+
+    .register-box {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(5, 25, 45, 0.94);
+      border: 1px solid #f5b942;
+      border-radius: 20px;
+      padding: 35px 25px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      text-align: center;
+      color: #f5b942;
+      margin-bottom: 8px;
+      font-size: 36px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: white;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      color: #f5b942;
+      margin: 14px 0 6px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border-radius: 8px;
+      border: 1px solid #557080;
+      background: #0c263a;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #f5b942;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #f5b942;
+      color: #061a2b;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .login-text {
+      text-align: center;
+      color: white;
+      margin-top: 20px;
+    }
+
+    .login-text a {
+      color: #f5b942;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="register-box">
+
+    <h1>CapitalX</h1>
+    <p class="subtitle">Create Your Account</p>
+
+    <form>
+
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your full name" required>
+
+      <label>Mobile Number</label>
+      <input type="tel" placeholder="Enter mobile number" required>
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter email address" required>
+
+      <label>Password</label>
+      <input type="password" placeholder="Create password" required>
+
+      <label>Confirm Password</label>
+      <input type="password" placeholder="Confirm password" required>
+
+      <button type="submit">CREATE ACCOUNT</button>
+
+    </form>
+
+    <p class="login-text">
+      Already have an account?
+      <a href="login.html">LOGIN</a>
+    </p>
+
+  </div>
+
+</body>
+</html>
