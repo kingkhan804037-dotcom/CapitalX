@@ -41,31 +41,39 @@ nav a {
   margin-left: 25px;
 }
 
-.hero {
+.hero-content {
+  width: 90%;
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 50px 20px;
   text-align: center;
-  padding: 90px 20px;
-  background: linear-gradient(135deg, #061a2b, #0d3048);
+
+  background: rgba(5, 25, 45, 0.90);
+  border: 1px solid rgba(255, 190, 50, 0.6);
+  border-radius: 25px;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero h1 {
+.hero-content h1 {
+  margin: 0;
+  text-align: center;
+  color: #f5b82e;
   font-size: 52px;
-  color: #f5b942;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 20px;
-  color: #c8d3dc;
-  margin-bottom: 35px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 14px 30px;
-  margin: 7px;
-  border-radius: 8px;
-  text-decoration: none;
   font-weight: bold;
+}
+
+.hero-content p {
+  margin: 10px 0 30px;
+  text-align: center;
+  color: white;
+  font-size: 22px;
 }
 
 .login {
