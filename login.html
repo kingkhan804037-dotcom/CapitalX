@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CapitalX - Demo Login</title>
 
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #061a2b, #0b4f75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 430px;
+  background: rgba(5, 25, 45, 0.95);
+  border: 1px solid #f5b942;
+  border-radius: 20px;
+  padding: 35px 25px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.5);
+}
+
+h1 {
+  text-align: center;
+  color: #f5b942;
+  font-size: 38px;
+}
+
+.subtitle {
+  text-align: center;
+  color: white;
+  margin: 8px 0 30px;
+}
+
+label {
+  display: block;
+  color: #f5b942;
+  font-weight: bold;
+  margin: 15px 0 7px;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #777;
+  border-radius: 10px;
+  background: #193b50;
+  color: white;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #f5b942;
+  color: #061a2b;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.demo-note {
+  margin-top: 20px;
+  text-align: center;
+  color: #bbb;
+  font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+  <h1>CapitalX</h1>
+  <p class="subtitle">Demo Login</p>
+
+  <form onsubmit="demoLogin(event)">
+
+    <label>Email</label>
+    <input type="email" placeholder="Enter email address" required>
+
+    <label>Password</label>
+    <input type="password" placeholder="Enter password" required>
+
+    <button type="submit">LOGIN</button>
+
+  </form>
+
+  <p class="demo-note">
+    Demo prototype — no login credentials are stored.
+  </p>
+
+</div>
+
+<script>
+function demoLogin(event) {
+  event.preventDefault();
+  alert("Demo login successful!");
+}
+</script>
+
+</body>
+</html>
