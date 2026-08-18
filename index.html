@@ -156,50 +156,38 @@ footer {
     display: none;
   }
 }
-/* SMALL HERO SLIDER */
-.hero {
-    position: relative;
-    overflow: hidden;
+.login-slider {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto 25px;
+  position: relative;
 }
 
-.popup-slider {
-    width: 100%;
-    height: 42px;
-    overflow: hidden;
-    position: absolute;
-    top: 105px;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    z-index: 5;
+.login-slide-track {
+  display: flex;
+  width: max-content;
+  gap: 40px;
+  animation: loginSlide 18s linear infinite;
 }
 
-.popup-track {
-    display: flex;
-    width: max-content;
-    animation: slidePopup 12s linear infinite;
+.login-slide {
+  min-width: 330px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #111;
+  white-space: nowrap;
 }
 
-.small-popup {
-    background: rgba(255,255,255,0.95);
-    color: #061a2b;
-    padding: 9px 18px;
-    margin: 0 6px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: bold;
-    white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+@keyframes loginSlide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
-
-@keyframes slidePopup {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
+  
 </style>
 </head>
 
@@ -218,18 +206,24 @@ footer {
     <a href="#">Register</a>
   </nav>
 </header>
+  <div class="login-slider">
+  <div class="login-slide-track">
 
-<section class="hero">
-  <div class="popup-slider">
-    <div class="popup-track">
-        <div class="small-popup">📊 NIFTY 50</div>
-        <div class="small-popup">💰 LOW BROKERAGE</div>
-        <div class="small-popup">⚡ FAST EXECUTION</div>
-        <div class="small-popup">🛡️ SECURE TRADING</div>
-        <div class="small-popup">📈 LIVE MARKET</div>
-        <div class="small-popup">🚀 HIGH MARGIN</div>
-    </div>
+    <div class="login-slide">⚡ Fastest Deposit in 1 Minute.</div>
+    <div class="login-slide">💰 500x Leverage in Futures</div>
+    <div class="login-slide">🔒 Secure & Reliable Trading</div>
+    <div class="login-slide">📈 Live Market & Fast Execution</div>
+    <div class="login-slide">🚀 High Margin Trading</div>
+
+    <div class="login-slide">⚡ Fastest Deposit in 1 Minute.</div>
+    <div class="login-slide">💰 500x Leverage in Futures</div>
+    <div class="login-slide">🔒 Secure & Reliable Trading</div>
+    <div class="login-slide">📈 Live Market & Fast Execution</div>
+    <div class="login-slide">🚀 High Margin Trading</div>
+
   </div>
+  </div>
+
   <h1>CAPITALX</h1>
   <p>TRADE. INVEST. GROW.</p>
 
