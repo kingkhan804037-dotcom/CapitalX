@@ -20,7 +20,20 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+#interactive-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
 
+body > *:not(#interactive-bg) {
+  position: relative;
+  z-index: 1;
+}
 header {
   padding: 22px 7%;
   display: flex;
