@@ -156,42 +156,55 @@ footer {
     display: none;
   }
 }
-  /* FLOATING POPUPS */
-.floating-popup {
-  position: fixed;
-  padding: 10px 16px;
-  background: rgba(255,255,255,0.95);
-  color: #061a2b;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-  font-size: 14px;
-  font-weight: bold;
-  z-index: 9999;
-  animation: floatPopup 4s ease-in-out infinite;
+/* SMALL HERO SLIDER */
+.hero {
+    position: relative;
+    overflow: hidden;
 }
 
-.popup1 { top: 25%; left: 3%; }
-.popup2 { top: 38%; right: 3%; }
-.popup3 { top: 52%; left: 4%; }
-.popup4 { top: 65%; right: 4%; }
-.popup5 { top: 78%; left: 3%; }
-.popup6 { top: 88%; right: 3%; }
+.popup-slider {
+    width: 100%;
+    height: 42px;
+    overflow: hidden;
+    position: absolute;
+    top: 105px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+}
 
-@keyframes floatPopup {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.popup-track {
+    display: flex;
+    width: max-content;
+    animation: slidePopup 12s linear infinite;
+}
+
+.small-popup {
+    background: rgba(255,255,255,0.95);
+    color: #061a2b;
+    padding: 9px 18px;
+    margin: 0 6px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+@keyframes slidePopup {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="floating-popup popup1">📊 NIFTY 50</div>
-<div class="floating-popup popup2">💰 LOW BROKERAGE</div>
-<div class="floating-popup popup3">⚡ FAST EXECUTION</div>
-<div class="floating-popup popup4">🛡️ SECURE TRADING</div>
-<div class="floating-popup popup5">📊 LIVE MARKET</div>
-<div class="floating-popup popup6">🚀 HIGH MARGIN</div>
 
 <header>
   <div class="logo">
@@ -207,6 +220,16 @@ footer {
 </header>
 
 <section class="hero">
+  <div class="popup-slider">
+    <div class="popup-track">
+        <div class="small-popup">📊 NIFTY 50</div>
+        <div class="small-popup">💰 LOW BROKERAGE</div>
+        <div class="small-popup">⚡ FAST EXECUTION</div>
+        <div class="small-popup">🛡️ SECURE TRADING</div>
+        <div class="small-popup">📈 LIVE MARKET</div>
+        <div class="small-popup">🚀 HIGH MARGIN</div>
+    </div>
+  </div>
   <h1>CAPITALX</h1>
   <p>TRADE. INVEST. GROW.</p>
 
