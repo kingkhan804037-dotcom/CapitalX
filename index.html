@@ -156,10 +156,42 @@ footer {
     display: none;
   }
 }
+  /* FLOATING POPUPS */
+.floating-popup {
+  position: fixed;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.95);
+  color: #061a2b;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 9999;
+  animation: floatPopup 4s ease-in-out infinite;
+}
+
+.popup1 { top: 25%; left: 3%; }
+.popup2 { top: 38%; right: 3%; }
+.popup3 { top: 52%; left: 4%; }
+.popup4 { top: 65%; right: 4%; }
+.popup5 { top: 78%; left: 3%; }
+.popup6 { top: 88%; right: 3%; }
+
+@keyframes floatPopup {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 </style>
 </head>
 
 <body>
+
+<div class="floating-popup popup1">📊 NIFTY 50</div>
+<div class="floating-popup popup2">💰 LOW BROKERAGE</div>
+<div class="floating-popup popup3">⚡ FAST EXECUTION</div>
+<div class="floating-popup popup4">🛡️ SECURE TRADING</div>
+<div class="floating-popup popup5">📊 LIVE MARKET</div>
+<div class="floating-popup popup6">🚀 HIGH MARGIN</div>
 
 <header>
   <div class="logo">
@@ -236,6 +268,21 @@ footer {
 <footer>
   © 2026 CapitalX. Demo Trading Platform.
 </footer>
+    <!-- tumhara existing website code -->
+
+
+    <!-- FLOATING POPUPS -->
+    <div class="floating-popups">
+
+      <div class="float-popup popup1">
+        <b>⚡ Fast Trading</b>
+        <span>Fast & secure platform</span>
+        <button>×</button>
+      </div>
+
+      <!-- baaki 5 popup -->
+
+    </div>
 
 </body>
 </html>
