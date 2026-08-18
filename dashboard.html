@@ -4,176 +4,319 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CapitalX Dashboard</title>
+<title>CapitalX</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
 }
 
-body {
-    min-height: 100vh;
-    background: #061827;
-    color: white;
+html,body{
+    width:100%;
+    min-height:100%;
 }
 
-/* Header */
-.header {
-    height: 70px;
-    padding: 0 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #071d31;
-    border-bottom: 1px solid rgba(245,185,66,.25);
+body{
+    background:#061a2b;
+    color:white;
+    overflow-x:hidden;
 }
 
-.logo {
-    color: #f5b942;
-    font-size: 25px;
-    font-weight: bold;
+/* BACKGROUND */
+#interactive-bg{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    pointer-events:none;
 }
 
-.profile {
-    color: #cbd5df;
-    font-size: 14px;
+/* MAIN WEBSITE */
+.app{
+    position:relative;
+    z-index:1;
+    min-height:100vh;
 }
 
-/* Main */
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 30px 20px;
+/* HEADER */
+.header{
+    height:70px;
+    padding:0 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(4,18,32,.88);
+    border-bottom:1px solid rgba(245,185,66,.35);
+    backdrop-filter:blur(10px);
 }
 
-.welcome {
-    margin-bottom: 25px;
+.logo{
+    color:#f5b942;
+    font-size:24px;
+    font-weight:bold;
 }
 
-.welcome h1 {
-    font-size: 28px;
-    margin-bottom: 7px;
+.account-name{
+    color:#c9d7e5;
+    font-size:14px;
 }
 
-.welcome p {
-    color: #9eabb7;
+/* NAVIGATION */
+.nav{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    padding:14px 5%;
+    background:rgba(5,24,42,.9);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    position:sticky;
+    top:0;
+    z-index:10;
 }
 
-/* Balance */
-.balance-card {
-    background: linear-gradient(135deg, #0b3150, #092238);
-    border: 1px solid rgba(245,185,66,.35);
-    border-radius: 18px;
-    padding: 25px;
-    margin-bottom: 25px;
+.nav button{
+    border:none;
+    background:transparent;
+    color:#aebfd0;
+    padding:11px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:14px;
+    transition:.2s;
 }
 
-.balance-label {
-    color: #aab7c3;
-    font-size: 14px;
+.nav button:hover{
+    background:rgba(255,255,255,.08);
+    color:white;
 }
 
-.balance {
-    color: #f5b942;
-    font-size: 35px;
-    font-weight: bold;
-    margin-top: 8px;
+.nav button.active{
+    background:#f5b942;
+    color:#061a2b;
+    font-weight:bold;
 }
 
-/* Quick actions */
-.actions {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-bottom: 30px;
+/* CONTENT */
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:35px auto;
 }
 
-.action {
-    padding: 18px;
-    text-align: center;
-    border-radius: 12px;
-    background: #0b2942;
-    border: 1px solid #163f5c;
-    cursor: pointer;
+.page{
+    display:none;
 }
 
-.action:hover {
-    border-color: #f5b942;
+.page.active{
+    display:block;
 }
 
-.action strong {
-    display: block;
-    color: #f5b942;
-    margin-bottom: 5px;
+/* HEADINGS */
+.page-title{
+    font-size:30px;
+    margin-bottom:8px;
 }
 
-.action span {
-    color: #aab7c3;
-    font-size: 13px;
+.subtitle{
+    color:#9db0c2;
+    margin-bottom:28px;
 }
 
-/* Markets */
-.section-title {
-    font-size: 21px;
-    margin-bottom: 15px;
+/* BALANCE */
+.balance{
+    background:linear-gradient(135deg,#0b6da8,#1594d0);
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
-.markets {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+.balance-label{
+    color:#d8efff;
+    font-size:14px;
 }
 
-.market {
-    background: #0a2338;
-    border: 1px solid #163f5c;
-    border-radius: 15px;
-    padding: 20px;
+.balance-value{
+    color:#ffe083;
+    font-size:34px;
+    font-weight:bold;
+    margin-top:8px;
 }
 
-.market-name {
-    font-weight: bold;
-    font-size: 17px;
+/* ACTIONS */
+.actions{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:35px;
 }
 
-.market-symbol {
-    color: #8fa1af;
-    font-size: 12px;
-    margin-top: 4px;
+.action-btn{
+    border:none;
+    border-radius:14px;
+    padding:20px;
+    background:rgba(25,137,198,.65);
+    color:white;
+    cursor:pointer;
+    border:1px solid rgba(255,255,255,.15);
+    transition:.2s;
 }
 
-.price {
-    margin-top: 18px;
-    font-size: 22px;
-    font-weight: bold;
+.action-btn:hover{
+    transform:translateY(-3px);
+    background:#168ac7;
 }
 
-.change {
-    margin-top: 6px;
-    color: #39d98a;
-    font-size: 13px;
+.action-btn strong{
+    display:block;
+    color:#ffe083;
+    font-size:18px;
+    margin-bottom:5px;
 }
 
-/* Mobile */
-@media (max-width: 700px) {
-    .actions,
-    .markets {
-        grid-template-columns: 1fr;
+/* MARKET */
+.section-title{
+    font-size:20px;
+    margin-bottom:15px;
+}
+
+.markets{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.market{
+    background:rgba(19,70,103,.75);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:16px;
+    padding:20px;
+    transition:.2s;
+}
+
+.market:hover{
+    transform:translateY(-4px);
+    border-color:#f5b942;
+}
+
+.market-name{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.market-symbol{
+    color:#9eb4c7;
+    font-size:12px;
+    margin:5px 0 15px;
+}
+
+.price{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.change{
+    color:#21e58b;
+    font-size:13px;
+    margin-top:6px;
+}
+
+.watch-btn{
+    margin-top:15px;
+    width:100%;
+    padding:9px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#f5b942;
+    color:#061a2b;
+    font-weight:bold;
+}
+
+/* CARDS */
+.card{
+    background:rgba(10,39,61,.85);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:16px;
+    padding:22px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.muted{
+    color:#9db0c2;
+}
+
+/* TABLE */
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    text-align:left;
+    padding:15px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+th{
+    color:#f5b942;
+}
+
+/* ACCOUNT */
+.account-row{
+    display:flex;
+    justify-content:space-between;
+    padding:16px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.account-row span:first-child{
+    color:#9db0c2;
+}
+
+/* RESPONSIVE */
+@media(max-width:800px){
+
+    .header{
+        padding:0 20px;
     }
 
-    .header {
-        padding: 0 15px;
+    .nav{
+        overflow-x:auto;
+        justify-content:flex-start;
     }
 
-    .container {
-        padding: 22px 15px;
+    .nav button{
+        white-space:nowrap;
     }
 
-    .welcome h1 {
-        font-size: 24px;
+    .container{
+        width:94%;
+    }
+
+    .markets{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        grid-template-columns:1fr;
+    }
+
+    .page-title{
+        font-size:25px;
     }
 }
 </style>
@@ -181,70 +324,687 @@ body {
 
 <body>
 
-<header class="header">
-    <div class="logo">CAPITALX</div>
-    <div class="profile">Demo Account</div>
-</header>
+<canvas id="interactive-bg"></canvas>
 
-<main class="container">
+<div class="app">
 
-    <section class="welcome">
-        <h1>Welcome to CapitalX</h1>
-        <p>Your trading dashboard</p>
-    </section>
+    <!-- HEADER -->
+    <header class="header">
 
-    <section class="balance-card">
-        <div class="balance-label">Available Balance</div>
-        <div class="balance">$10,000.00</div>
-    </section>
-
-    <section class="actions">
-
-        <div class="action">
-            <strong>BUY</strong>
-            <span>Buy Assets</span>
+        <div class="logo">
+            CAPITALX
         </div>
 
-        <div class="action">
-            <strong>SELL</strong>
-            <span>Sell Assets</span>
+        <div class="account-name">
+            Demo Account
         </div>
 
-        <div class="action">
-            <strong>DEPOSIT</strong>
-            <span>Add Funds</span>
-        </div>
+    </header>
 
-    </section>
 
-    <h2 class="section-title">Markets</h2>
+    <!-- NAVIGATION -->
+    <nav class="nav">
 
-    <section class="markets">
+        <button class="nav-btn active" onclick="showPage('home',this)">
+            🏠 Home
+        </button>
 
-        <div class="market">
-            <div class="market-name">Bitcoin</div>
-            <div class="market-symbol">BTC / USD</div>
-            <div class="price">$67,420.50</div>
-            <div class="change">+2.34%</div>
-        </div>
+        <button class="nav-btn" onclick="showPage('watchlist',this)">
+            ⭐ Watchlist
+        </button>
 
-        <div class="market">
-            <div class="market-name">Ethereum</div>
-            <div class="market-symbol">ETH / USD</div>
-            <div class="price">$3,520.80</div>
-            <div class="change">+1.82%</div>
-        </div>
+        <button class="nav-btn" onclick="showPage('portfolio',this)">
+            💼 Portfolio
+        </button>
 
-        <div class="market">
-            <div class="market-name">CapitalX Token</div>
-            <div class="market-symbol">CXL / USD</div>
-            <div class="price">$12.45</div>
-            <div class="change">+4.12%</div>
-        </div>
+        <button class="nav-btn" onclick="showPage('orders',this)">
+            📋 Orders
+        </button>
 
-    </section>
+        <button class="nav-btn" onclick="showPage('account',this)">
+            👤 Account
+        </button>
 
-</main>
+    </nav>
+
+
+    <main class="container">
+
+
+        <!-- HOME -->
+        <section id="home" class="page active">
+
+            <h1 class="page-title">
+                Welcome to CapitalX
+            </h1>
+
+            <p class="subtitle">
+                Your trading dashboard
+            </p>
+
+
+            <div class="balance">
+
+                <div class="balance-label">
+                    Available Balance
+                </div>
+
+                <div class="balance-value" id="balance">
+                    $10,000.00
+                </div>
+
+            </div>
+
+
+            <div class="actions">
+
+                <button class="action-btn" onclick="demoAction('Buy')">
+                    <strong>BUY</strong>
+                    Buy Assets
+                </button>
+
+                <button class="action-btn" onclick="demoAction('Sell')">
+                    <strong>SELL</strong>
+                    Sell Assets
+                </button>
+
+                <button class="action-btn" onclick="deposit()">
+                    <strong>DEPOSIT</strong>
+                    Add Funds
+                </button>
+
+            </div>
+
+
+            <h2 class="section-title">
+                Markets
+            </h2>
+
+            <section class="markets">
+
+                <div class="market">
+
+                    <div class="market-name">
+                        Bitcoin
+                    </div>
+
+                    <div class="market-symbol">
+                        BTC / USD
+                    </div>
+
+                    <div class="price">
+                        $67,420.50
+                    </div>
+
+                    <div class="change">
+                        +2.34%
+                    </div>
+
+                    <button class="watch-btn"
+                        onclick="addWatch('Bitcoin')">
+                        + Watchlist
+                    </button>
+
+                </div>
+
+
+                <div class="market">
+
+                    <div class="market-name">
+                        Ethereum
+                    </div>
+
+                    <div class="market-symbol">
+                        ETH / USD
+                    </div>
+
+                    <div class="price">
+                        $3,520.80
+                    </div>
+
+                    <div class="change">
+                        +1.82%
+                    </div>
+
+                    <button class="watch-btn"
+                        onclick="addWatch('Ethereum')">
+                        + Watchlist
+                    </button>
+
+                </div>
+
+
+                <div class="market">
+
+                    <div class="market-name">
+                        CapitalX Token
+                    </div>
+
+                    <div class="market-symbol">
+                        CXL / USD
+                    </div>
+
+                    <div class="price">
+                        $12.45
+                    </div>
+
+                    <div class="change">
+                        +4.12%
+                    </div>
+
+                    <button class="watch-btn"
+                        onclick="addWatch('CapitalX Token')">
+                        + Watchlist
+                    </button>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- WATCHLIST -->
+        <section id="watchlist" class="page">
+
+            <h1 class="page-title">
+                Watchlist
+            </h1>
+
+            <p class="subtitle">
+                Assets you're keeping an eye on
+            </p>
+
+            <div class="card">
+
+                <h3>⭐ Your Watchlist</h3>
+
+                <div id="watchlist-items">
+
+                    <p class="muted">
+                        Your watchlist is empty.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PORTFOLIO -->
+        <section id="portfolio" class="page">
+
+            <h1 class="page-title">
+                Portfolio
+            </h1>
+
+            <p class="subtitle">
+                Your current holdings
+            </p>
+
+            <div class="card">
+
+                <h3>Total Portfolio Value</h3>
+
+                <div class="balance-value">
+                    $10,000.00
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Holdings</h3>
+
+                <p class="muted">
+                    No assets purchased yet.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ORDERS -->
+        <section id="orders" class="page">
+
+            <h1 class="page-title">
+                Orders
+            </h1>
+
+            <p class="subtitle">
+                Your trading activity
+            </p>
+
+
+            <div class="card table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Asset</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="orders-list">
+
+                        <tr>
+                            <td colspan="4" class="muted">
+                                No orders yet.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACCOUNT -->
+        <section id="account" class="page">
+
+            <h1 class="page-title">
+                Account
+            </h1>
+
+            <p class="subtitle">
+                Your CapitalX account details
+            </p>
+
+
+            <div class="card">
+
+                <div class="account-row">
+                    <span>Account Type</span>
+                    <span>Demo Account</span>
+                </div>
+
+                <div class="account-row">
+                    <span>Username</span>
+                    <span>CapitalX User</span>
+                </div>
+
+                <div class="account-row">
+                    <span>Account Status</span>
+                    <span>Active</span>
+                </div>
+
+                <div class="account-row">
+                    <span>Currency</span>
+                    <span>USD</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<script>
+
+/* PAGE NAVIGATION */
+
+function showPage(pageId, button){
+
+    const pages = document.querySelectorAll('.page');
+
+    pages.forEach(function(page){
+        page.classList.remove('active');
+    });
+
+    document.getElementById(pageId).classList.add('active');
+
+    const buttons = document.querySelectorAll('.nav-btn');
+
+    buttons.forEach(function(btn){
+        btn.classList.remove('active');
+    });
+
+    button.classList.add('active');
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+}
+
+
+/* DEMO BUY / SELL */
+
+function demoAction(type){
+
+    alert(
+        type +
+        " feature is ready for the next step."
+    );
+
+}
+
+
+/* DEPOSIT */
+
+function deposit(){
+
+    let amount = prompt(
+        "Enter demo deposit amount:"
+    );
+
+    if(amount && !isNaN(amount)){
+
+        let balance =
+            document.getElementById("balance");
+
+        let current =
+            parseFloat(
+                balance.innerText
+                .replace("$","")
+                .replace(",","")
+            );
+
+        let newBalance =
+            current + parseFloat(amount);
+
+        balance.innerText =
+            "$" +
+            newBalance.toLocaleString(
+                "en-US",
+                {
+                    minimumFractionDigits:2,
+                    maximumFractionDigits:2
+                }
+            );
+    }
+}
+
+
+/* WATCHLIST */
+
+function addWatch(asset){
+
+    const container =
+        document.getElementById(
+            "watchlist-items"
+        );
+
+    if(
+        container.innerText.includes(
+            "Your watchlist is empty"
+        )
+    ){
+        container.innerHTML = "";
+    }
+
+    const item =
+        document.createElement("div");
+
+    item.className = "account-row";
+
+    item.innerHTML =
+        "<span>⭐ " +
+        asset +
+        "</span>" +
+        "<span>Watching</span>";
+
+    container.appendChild(item);
+
+    alert(
+        asset +
+        " added to Watchlist."
+    );
+}
+
+
+/* INTERACTIVE BACKGROUND */
+
+const canvas =
+    document.getElementById(
+        "interactive-bg"
+    );
+
+const ctx =
+    canvas.getContext("2d");
+
+let points = [];
+
+let mouse = {
+    x:null,
+    y:null
+};
+
+
+function resizeCanvas(){
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
+    points = [];
+
+    const amount =
+        Math.floor(
+            (canvas.width *
+             canvas.height) /
+            18000
+        );
+
+    for(let i=0;i<amount;i++){
+
+        points.push({
+
+            x:Math.random() *
+              canvas.width,
+
+            y:Math.random() *
+              canvas.height,
+
+            vx:(Math.random()-.5)*.25,
+
+            vy:(Math.random()-.5)*.25
+
+        });
+
+    }
+}
+
+
+resizeCanvas();
+
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+window.addEventListener(
+    "mousemove",
+    function(e){
+
+        mouse.x =
+            e.clientX;
+
+        mouse.y =
+            e.clientY;
+
+    }
+);
+
+
+window.addEventListener(
+    "touchmove",
+    function(e){
+
+        if(e.touches.length > 0){
+
+            mouse.x =
+                e.touches[0].clientX;
+
+            mouse.y =
+                e.touches[0].clientY;
+
+        }
+
+    },
+    {passive:true}
+);
+
+
+window.addEventListener(
+    "mouseleave",
+    function(){
+
+        mouse.x = null;
+        mouse.y = null;
+
+    }
+);
+
+
+function animate(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    for(let p of points){
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+
+        if(p.x < 0 || p.x > canvas.width){
+            p.vx *= -1;
+        }
+
+        if(p.y < 0 || p.y > canvas.height){
+            p.vy *= -1;
+        }
+
+
+        if(mouse.x !== null){
+
+            const dx =
+                p.x - mouse.x;
+
+            const dy =
+                p.y - mouse.y;
+
+            const distance =
+                Math.sqrt(
+                    dx*dx + dy*dy
+                );
+
+
+            if(distance < 150){
+
+                p.x += dx * 0.006;
+                p.y += dy * 0.006;
+
+            }
+
+        }
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            2,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle =
+            "rgba(0,180,255,.55)";
+
+        ctx.fill();
+
+    }
+
+
+    for(
+        let i=0;
+        i<points.length;
+        i++
+    ){
+
+        for(
+            let j=i+1;
+            j<points.length;
+            j++
+        ){
+
+            const dx =
+                points[i].x -
+                points[j].x;
+
+            const dy =
+                points[i].y -
+                points[j].y;
+
+            const distance =
+                Math.sqrt(
+                    dx*dx + dy*dy
+                );
+
+
+            if(distance < 130){
+
+                ctx.beginPath();
+
+                ctx.moveTo(
+                    points[i].x,
+                    points[i].y
+                );
+
+                ctx.lineTo(
+                    points[j].x,
+                    points[j].y
+                );
+
+                ctx.strokeStyle =
+                    "rgba(0,150,255,.16)";
+
+                ctx.stroke();
+
+            }
+
+        }
+
+    }
+
+
+    requestAnimationFrame(
+        animate
+    );
+}
+
+
+animate();
+
+</script>
 
 </body>
 </html>
