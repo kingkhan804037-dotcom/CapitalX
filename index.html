@@ -318,6 +318,90 @@ footer {
       <!-- baaki 5 popup -->
 
     </div>
+<canvas id="interactive-bg"></canvas>
 
+<script>
+const canvas = document.getElementById("interactive-bg");
+const ctx = canvas.getContext("2d");
+
+let mouse = { x: null, y: null };
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+window.addEventListener("mousemove", (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+window.addEventListener("touchmove", (e) => {
+  mouse.x = e.touches[0].clientX;
+  mouse.y = e.touches[0].clientY;
+}, { passive: true });
+
+const points = [];
+
+for (let i = 0; i < 70; i++) {
+  points.push({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3
+  });
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let p of points) {
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+    if (mouse.x !== null) {
+      const dx = mouse.x - p.x;
+      const dy = mouse.y - p.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < 150) {
+        p.x -= dx * 0.002;
+        p.y -= dy * 0.002;
+      }
+    }
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(0,180,255,0.8)";
+    ctx.fill();
+  }
+
+  for (let i = 0; i < points.length; i++) {
+    for (let j = i + 1; j < points.length; j++) {
+      const dx = points[i].x - points[j].x;
+      const dy = points[i].y - points[j].y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < 130) {
+        ctx.beginPath();
+        ctx.moveTo(points[i].x, points[i].y);
+        ctx.lineTo(points[j].x, points[j].y);
+        ctx.strokeStyle = "rgba(0,150,255,0.18)";
+        ctx.stroke();
+      }
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
 </body>
 </html>
