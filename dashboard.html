@@ -1,1 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>CapitalX Dashboard</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #061827;
+    color: white;
+}
+
+/* Header */
+.header {
+    height: 70px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #071d31;
+    border-bottom: 1px solid rgba(245,185,66,.25);
+}
+
+.logo {
+    color: #f5b942;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.profile {
+    color: #cbd5df;
+    font-size: 14px;
+}
+
+/* Main */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.welcome {
+    margin-bottom: 25px;
+}
+
+.welcome h1 {
+    font-size: 28px;
+    margin-bottom: 7px;
+}
+
+.welcome p {
+    color: #9eabb7;
+}
+
+/* Balance */
+.balance-card {
+    background: linear-gradient(135deg, #0b3150, #092238);
+    border: 1px solid rgba(245,185,66,.35);
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.balance-label {
+    color: #aab7c3;
+    font-size: 14px;
+}
+
+.balance {
+    color: #f5b942;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+/* Quick actions */
+.actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.action {
+    padding: 18px;
+    text-align: center;
+    border-radius: 12px;
+    background: #0b2942;
+    border: 1px solid #163f5c;
+    cursor: pointer;
+}
+
+.action:hover {
+    border-color: #f5b942;
+}
+
+.action strong {
+    display: block;
+    color: #f5b942;
+    margin-bottom: 5px;
+}
+
+.action span {
+    color: #aab7c3;
+    font-size: 13px;
+}
+
+/* Markets */
+.section-title {
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.markets {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.market {
+    background: #0a2338;
+    border: 1px solid #163f5c;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.market-name {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.market-symbol {
+    color: #8fa1af;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.price {
+    margin-top: 18px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.change {
+    margin-top: 6px;
+    color: #39d98a;
+    font-size: 13px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .actions,
+    .markets {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        padding: 0 15px;
+    }
+
+    .container {
+        padding: 22px 15px;
+    }
+
+    .welcome h1 {
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">CAPITALX</div>
+    <div class="profile">Demo Account</div>
+</header>
+
+<main class="container">
+
+    <section class="welcome">
+        <h1>Welcome to CapitalX</h1>
+        <p>Your trading dashboard</p>
+    </section>
+
+    <section class="balance-card">
+        <div class="balance-label">Available Balance</div>
+        <div class="balance">$10,000.00</div>
+    </section>
+
+    <section class="actions">
+
+        <div class="action">
+            <strong>BUY</strong>
+            <span>Buy Assets</span>
+        </div>
+
+        <div class="action">
+            <strong>SELL</strong>
+            <span>Sell Assets</span>
+        </div>
+
+        <div class="action">
+            <strong>DEPOSIT</strong>
+            <span>Add Funds</span>
+        </div>
+
+    </section>
+
+    <h2 class="section-title">Markets</h2>
+
+    <section class="markets">
+
+        <div class="market">
+            <div class="market-name">Bitcoin</div>
+            <div class="market-symbol">BTC / USD</div>
+            <div class="price">$67,420.50</div>
+            <div class="change">+2.34%</div>
+        </div>
+
+        <div class="market">
+            <div class="market-name">Ethereum</div>
+            <div class="market-symbol">ETH / USD</div>
+            <div class="price">$3,520.80</div>
+            <div class="change">+1.82%</div>
+        </div>
+
+        <div class="market">
+            <div class="market-name">CapitalX Token</div>
+            <div class="market-symbol">CXL / USD</div>
+            <div class="price">$12.45</div>
+            <div class="change">+4.12%</div>
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>
