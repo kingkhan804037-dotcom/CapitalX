@@ -1,22 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CapitalX - Trade. Invest. Grow.</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CapitalX</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #061a2b;
+  color: white;
+}
+
+header {
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #18364d;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: bold;
+  color: #f5b942;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+}
+
+.hero {
+  text-align: center;
+  padding: 90px 20px;
+  background: linear-gradient(135deg, #061a2b, #0d3048);
+}
+
+.hero h1 {
+  font-size: 52px;
+  color: #f5b942;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #c8d3dc;
+  margin-bottom: 35px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 30px;
+  margin: 7px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login {
+  color: #f5b942;
+  border: 1px solid #f5b942;
+}
+
+.register {
+  background: #f5b942;
+  color: #061a2b;
+}
+
+.section {
+  padding: 60px 7%;
+  text-align: center;
+}
+
+.section h2 {
+  color: #f5b942;
+  margin-bottom: 30px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #0c263a;
+  padding: 30px 15px;
+  border: 1px solid #183d56;
+  border-radius: 12px;
+}
+
+.card h3 {
+  color: #f5b942;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #b8c5cf;
+}
+
+.market {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.market-box {
+  background: #0c263a;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #183d56;
+}
+
+.market-box span {
+  display: block;
+  color: #f5b942;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #8295a5;
+  border-top: 1px solid #18364d;
+}
+
+@media(max-width: 700px) {
+  .cards,
+  .market {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  nav {
+    display: none;
+  }
+}
+</style>
 </head>
 
 <body>
 
+<header>
+  <div class="logo">CAPITALX</div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Markets</a>
+    <a href="#">Login</a>
+    <a href="#">Register</a>
+  </nav>
+</header>
+
+<section class="hero">
   <h1>CAPITALX</h1>
   <p>TRADE. INVEST. GROW.</p>
 
-  <button>Login</button>
-  <button>Register</button>
+  <a href="#" class="btn login">LOGIN</a>
+  <a href="#" class="btn register">CREATE ACCOUNT</a>
+</section>
 
-  <h2>Markets</h2>
-  <p>NIFTY 50 — Coming Soon</p>
-  <p>BANK NIFTY — Coming Soon</p>
+<section class="section">
+
+  <h2>Why CapitalX?</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>LIVE MARKET</h3>
+      <p>Track market prices and movements.</p>
+    </div>
+
+    <div class="card">
+      <h3>FAST EXECUTION</h3>
+      <p>Simple and responsive trading interface.</p>
+    </div>
+
+    <div class="card">
+      <h3>SECURE</h3>
+      <p>Designed with security-focused architecture.</p>
+    </div>
+
+    <div class="card">
+      <h3>SMART PORTFOLIO</h3>
+      <p>Monitor your demo portfolio and P&L.</p>
+    </div>
+
+  </div>
+
+  <h2 style="margin-top:60px;">Markets</h2>
+
+  <div class="market">
+
+    <div class="market-box">
+      NIFTY 50
+      <span>Coming Soon</span>
+    </div>
+
+    <div class="market-box">
+      BANK NIFTY
+      <span>Coming Soon</span>
+    </div>
+
+    <div class="market-box">
+      FINNIFTY
+      <span>Coming Soon</span>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 CapitalX. Demo Trading Platform.
+</footer>
 
 </body>
 </html>
